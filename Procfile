@@ -1,0 +1,1 @@
+web: projetoCP.wsgi
