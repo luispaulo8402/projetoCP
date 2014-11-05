@@ -1,1 +1,1 @@
-web: projetoCP.wsgi
+web: gunicorn projetoCP.wsgi
