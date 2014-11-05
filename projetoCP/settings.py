@@ -15,7 +15,7 @@ from decouple import config
 from unipath import Path
 BASE_DIR = Path(__file__).parent
 
-STATIC_ROOT = 'staticfiles'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -27,7 +27,7 @@ SECRET_KEY = 'v-%^_(17=$dyi6a%(h(*(95gyi!49voe%#vsxsdn4+3+7h0=+#'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
-
+STATIC_ROOT = 'staticfiles'
 ALLOWED_HOSTS = ['*']
 
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -65,7 +66,9 @@ DATABASES = {
         default='sqlite:///' + BASE_DIR.child('db.sqlite3'),
         cast=db_url),
 }
-
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -85,6 +88,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-os.path.join(BASE_DIR, 'static'),
-)
+
